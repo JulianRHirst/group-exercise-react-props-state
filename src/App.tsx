@@ -1,8 +1,11 @@
 import './App.css';
 import { useState } from 'react';
-import ChuckCard from './components/chuck_card';
+import {ChuckCard} from './components/chuck_card';
 import ChuckInfo from './components/chuck_info';
 import Joke from './joke';
+import {imageReadFile} from './types/image_data'
+
+const images = imageReadFile("./assets/image.info")
 
 function App() {
 
@@ -30,13 +33,13 @@ function App() {
 		<div className="App">
 
 			<h1>React props and state</h1>
-			<ChuckCard />
+			<ChuckCard greeting = {chuckGreeting} images={[...images]}/>
 
 			<h2>Chuck Info: </h2>
-			<ChuckInfo />
+			<ChuckInfo { ...{nWhales: whalesSaved, nRoundHouse: roundHouseKicks} } />
 
 			<h2>Jokes: </h2>
-
+			
 		</div>
 	);
 }
