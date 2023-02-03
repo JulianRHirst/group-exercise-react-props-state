@@ -1,4 +1,4 @@
-// not react compatible
+// not react compatible? tried various things like adding types with npm and editing package.json - does not seem to work
 // import { readFileSync } from 'fs';
 
 

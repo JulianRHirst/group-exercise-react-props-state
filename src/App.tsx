@@ -2,8 +2,10 @@ import './App.css';
 import { useState } from 'react';
 import {ChuckCard} from './components/chuck_card';
 import ChuckInfo from './components/chuck_info';
-import Joke from './joke';
-import {imageReadFile} from './types/image_data'
+import {Joke} from './joke';
+import { v4 as uuidv4 } from 'uuid';
+import {imageReadFile} from './types/image_data';
+import {ChuckJoke} from './components/chuck_joke';
 
 const images = imageReadFile("./assets/image.info")
 
@@ -36,10 +38,12 @@ function App() {
 			<ChuckCard greeting = {chuckGreeting} images={[...images]}/>
 
 			<h2>Chuck Info: </h2>
-			<ChuckInfo { ...{nWhales: whalesSaved, nRoundHouse: roundHouseKicks} } />
+			<ChuckInfo { ...{whaleCount: whalesSaved, roundHouseCount: roundHouseKicks} } />
 
 			<h2>Jokes: </h2>
-			
+			<div className='joke_wrapper'>
+				{jokes.map((pun)=> {return <ChuckJoke key={uuidv4()} id={pun.id} joke={pun.joke} />}) }
+			</div>
 		</div>
 	);
 }

@@ -1,9 +1,9 @@
 export interface ChuckInfoProps {
-	nWhales: number;
-	nRoundHouse: number;
+	whaleCount: number;
+	roundHouseCount: number;
 }
 
-const ChuckInfo: React.FC<ChuckInfoProps> = ( { nWhales, nRoundHouse }) => {
+const ChuckInfo: React.FC<ChuckInfoProps> = ( { whaleCount: nWhales, roundHouseCount: nRoundHouse }) => {
 
 	// 💡 note that this component uses an "explicit return"
 	// Compare to <ChuckCard/> which just returns the JSX directly like this:
